@@ -13,7 +13,7 @@ public class Matrix {
         this.data = new int[rows][cols];
     }
 
-    public void nextMatrix(Scanner sc) {//nhap data cho ma tran
+    public void nextMatrix(Scanner sc) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 data[i][j] = sc.nextInt();
