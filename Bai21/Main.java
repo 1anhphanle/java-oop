@@ -1,5 +1,4 @@
 package huongdoituong.Bai21;
-import huongdoituong.Bai21.HocSinh;
 
 import java.util.ArrayList;
 import java.util.Comparator;
