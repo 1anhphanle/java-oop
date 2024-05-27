@@ -1,25 +1,24 @@
 package huongdoituong.Bai18;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        sc.nextLine(); // Consume the remaining newline
+        int N = Integer.parseInt(sc.nextLine());
 
-        List<NhanVien> danhSachNhanVien = new ArrayList<>();
+        NhanVien[] danhSachNhanVien = new NhanVien[N];
 
         for (int i = 0; i < N; i++) {
             NhanVien nv = new NhanVien();
-            nv.nhap(sc);
-            danhSachNhanVien.add(nv);
+            nv.nhapThongTin(sc);
+            danhSachNhanVien[i] = nv;
         }
 
-        for (NhanVien nv : danhSachNhanVien) {
-            System.out.println(nv);
+        for (NhanVien nhanVien : danhSachNhanVien) {
+            System.out.println(nhanVien);
         }
+
+        sc.close();
     }
 }

@@ -1,35 +1,34 @@
 package huongdoituong.Bai17;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        sc.nextLine(); // consume the remaining newline
+        int N = Integer.parseInt(sc.nextLine());
 
-        List<SinhVien> sinhVienList = new ArrayList<>();
+        SinhVien[] danhSachSinhVien = new SinhVien[N];
 
         for (int i = 0; i < N; i++) {
             String hoTen = sc.nextLine();
             String lop = sc.nextLine();
             String ngaySinh = sc.nextLine();
-            double gpa = Double.parseDouble(sc.nextLine());
-            sinhVienList.add(new SinhVien(hoTen, lop, ngaySinh, gpa));
+            float gpa = Float.parseFloat(sc.nextLine());
+
+            SinhVien sv = new SinhVien();
+            sv.nhapThongTin(hoTen, lop, ngaySinh, gpa);
+            danhSachSinhVien[i] = sv;
         }
 
-        Collections.sort(sinhVienList, new Comparator<SinhVien>() {
-            @Override
-            public int compare(SinhVien sv1, SinhVien sv2) {
-                if (Double.compare(sv2.getGpa(), sv1.getGpa()) == 0) {
-                    return sv1.getMaSV().compareTo(sv2.getMaSV());
-                }
-                return Double.compare(sv2.getGpa(), sv1.getGpa());
-            }
-        });
+        // Sắp xếp danh sách sinh viên theo GPA giảm dần và theo mã sinh viên
+        Arrays.sort(danhSachSinhVien);
 
-        for (SinhVien sv : sinhVienList) {
-            System.out.println(sv);
+        // In ra danh sách sinh viên đã sắp xếp
+        for (SinhVien sinhVien : danhSachSinhVien) {
+            System.out.println(sinhVien);
         }
+
+        sc.close();
     }
 }

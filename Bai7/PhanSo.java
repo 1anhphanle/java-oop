@@ -32,17 +32,17 @@ class PhanSo {
 
     // Rút gọn phân số
     public void simplify() {
-        int gcd = greatestCommonDivisor(this.tuSo, this.mauSo);
+        int gcd = GCD(this.tuSo, this.mauSo);
         this.tuSo /= gcd;
         this.mauSo /= gcd;
     }
 
     // Tìm ước chung lớn nhất
-    private int greatestCommonDivisor(int a, int b) {
+    private int GCD(int a, int b) {
         if (b == 0) {
             return a;
         }
-        return greatestCommonDivisor(b, a % b);
+        return GCD(b, a % b);
     }
 
     @Override

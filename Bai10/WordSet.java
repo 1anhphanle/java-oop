@@ -1,7 +1,7 @@
 package huongdoituong.Bai10;
 
-import java.util.TreeSet;
 import java.util.Arrays;
+import java.util.TreeSet;
 
 public class WordSet {
     private TreeSet<String> set;

@@ -23,7 +23,7 @@ public class Matrix {
 
     public Matrix mul(Matrix other) {
         if (this.cols != other.rows) {
-            throw new IllegalArgumentException("Matrix dimensions do not match for multiplication.");
+            throw new IllegalArgumentException("Kích thước ma trận không khớp với phép nhân.");
         }
         Matrix result = new Matrix(this.rows, other.cols);
         for (int i = 0; i < this.rows; i++) {

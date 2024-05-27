@@ -1,4 +1,5 @@
 package huongdoituong.Bai6;
+//anhphanle
 
 public class KQTuyenSinh {
     private String maSV;

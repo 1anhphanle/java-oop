@@ -1,44 +1,38 @@
 package huongdoituong.Bai15;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class SinhVien {
-    private static int counter = 1;
+    private static int idCounter = 1;
     private String maSV;
     private String hoTen;
     private String lop;
     private String ngaySinh;
-    private double gpa;
+    private float gpa;
 
     public SinhVien() {
-        this.maSV = String.format("SV%03d", counter++);
+        this.maSV = String.format("SV%03d", idCounter++);
         this.hoTen = "";
         this.lop = "";
         this.ngaySinh = "";
-        this.gpa = 0.0;
+        this.gpa = 0.0f;
     }
 
-    public SinhVien(String hoTen, String lop, String ngaySinh, double gpa) {
-        this();
+    public void nhapThongTin(String hoTen, String lop, String ngaySinh, float gpa) {
         this.hoTen = hoTen;
         this.lop = lop;
-        this.ngaySinh = chuanHoaNgaySinh(ngaySinh);
+        this.ngaySinh = ngaySinh;
+        chuanHoaNgay();
         this.gpa = gpa;
     }
 
-    private String chuanHoaNgaySinh(String ngaySinh) {
-        String[] parts = ngaySinh.split("[/\\-]");
-        if (parts[0].length() == 1) parts[0] = "0" + parts[0];
-        if (parts[1].length() == 1) parts[1] = "0" + parts[1];
-        return parts[0] + "/" + parts[1] + "/" + parts[2];
+    public void chuanHoaNgay() {
+        StringBuilder sb = new StringBuilder(this.ngaySinh);
+        if (sb.charAt(1) == '/') sb.insert(0, "0");
+        if (sb.charAt(4) == '/') sb.insert(3, "0");
+        this.ngaySinh = sb.toString();
     }
 
     @Override
     public String toString() {
-        DecimalFormat df = new DecimalFormat("#.00");
-        return maSV + " " + hoTen + " " + lop + " " + ngaySinh + " " + df.format(gpa);
+        return String.format("%s %s %s %s %.2f", maSV, hoTen, lop, ngaySinh, gpa);
     }
 }
